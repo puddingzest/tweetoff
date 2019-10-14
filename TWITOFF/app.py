@@ -23,10 +23,9 @@ def create_app():
         return contact
 
     # TODO - Finish up projects and HTML for the page.
-    # def projects():
-    #     projects() = render_template()
-
-
-
+    @app.route('/projects')
+    def projects():
+        project = render_template("projects.html", template_folder="templates")
+        return project
 
     return app
