@@ -9,6 +9,12 @@ verify_ssl = true
 flask = "*"
 flask-alchemy = "*"
 flask-sqlalchemy = "*"
+tweepy = "*"
+basilica = "*"
+decouple = "*"
+scikit-learn = "*"
+sklearn = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.7"
