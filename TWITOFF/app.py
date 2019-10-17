@@ -3,6 +3,8 @@
 # imports
 from decouple import config
 from flask import Flask, render_template, request
+
+from TWITOFF.predict import predict_user
 from .models import DB, User
 from TWITOFF.twitter import add_or_update_user
 
@@ -37,6 +39,21 @@ def create_app():
             tweets = []
         return render_template('user.html', title=name, tweets=tweets,
                                message=message)
+
+    @app.route('/compare', methods=['POST'])
+    def compare(message=''):
+        user1, user2 = sorted([request.values['user1'], request.values['user2']])
+
+        if user1 == user2:
+            message = "Cannot compare user to themselves."
+        else:
+            prediction = predict_user(user1, user2, request.values['tweet_text'])
+            message = '"{}" is more likely to be said by {} than {}'.format(request.values['tweet_text'],
+                                                                            user1 if prediction else user2,
+                                                                            user2 if sprediction else user1)
+        return render_template('prediction.html', title='Prediction', message=message)
+
+
 
     @app.route('/reset')
     def reset():
