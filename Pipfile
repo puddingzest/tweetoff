@@ -7,11 +7,9 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-flask-alchemy = "*"
 flask-sqlalchemy = "*"
 tweepy = "*"
 basilica = "*"
-decouple = "*"
 scikit-learn = "*"
 sklearn = "*"
 python-decouple = "*"

@@ -1,6 +1,7 @@
 """Main application for twitoff"""
 
 # imports
+# TODO import pickle
 from decouple import config
 from flask import Flask, render_template, request
 
