@@ -39,7 +39,7 @@ def create_app():
             message = "Error adding {}: {}".format(name, e)
             tweets = []
         return render_template('user.html', title=name, tweets=tweets,
-                               message=message)
+                               message=message) # Added value. 
 
     @app.route('/compare', methods=['POST'])
     def compare(message=''):

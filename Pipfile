@@ -6,13 +6,17 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-flask = "*"
-flask-sqlalchemy = "*"
-tweepy = "*"
-basilica = "*"
+pandas = "*"
+numpy = "*"
 scikit-learn = "*"
-sklearn = "*"
 python-decouple = "*"
+flask = "*"
+basilica = "*"
+tweepy = "*"
+pickle = "*"
+sqlalchemy = "*"
+flask-sqlalchemy = "*"
+tensorflow = "*"
 
 [requires]
 python_version = "3.7"
