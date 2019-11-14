@@ -1,13 +1,15 @@
 """Main application for twitoff"""
 
 # imports
-# TODO import pickle
+import pickle
 from decouple import config
 from flask import Flask, render_template, request
 
 from TWITOFF.predict import predict_user
 from .models import DB, User
 from TWITOFF.twitter import add_or_update_user
+
+
 
 
 def create_app():
@@ -35,6 +37,7 @@ def create_app():
                 add_or_update_user(name)
                 message = "User {} successfully added!".format(name)
             tweets = User.query.filter(User.name == name).one().tweets
+
         except Exception as e:
             message = "Error adding {}: {}".format(name, e)
             tweets = []
@@ -53,7 +56,6 @@ def create_app():
                                                                             user1 if prediction else user2,
                                                                             user2 if sprediction else user1)
         return render_template('prediction.html', title='Prediction', message=message)
-
 
 
     @app.route('/reset')

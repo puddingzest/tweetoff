@@ -1,35 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>User: <a href="https://twitter.com/{{ title }}">@{{ title }}</a></h2>
-<p>{{ message }}</p>
-
-<ul class="list-group">
+<!-- <ul class="list-group">
   {% for tweet in tweets %}
   <li class="list-group-item"> {{ tweet.id }} - {{ tweet.text }}</li>
   {% endfor %}
-</ul>
-
+</ul> -->
 <div class="container">
     <div class="row">
-      <div class="col">
-        1 of 2
-      </div>
-      <div class="col">
-        2 of 2
-      </div>
+        <div class="col-md-12">
+            <h2>User: <a href="https://twitter.com/{{ title }}">@{{ title }}</a></h2>
+            <p>{{ message }}</p>
+        </div>
     </div>
-    <div class="row">
-      <div class="col">
-        1 of 3`
-      </div>
-      <div class="col">
-        2 of 3
-      </div>
-      <div class="col">
-        3 of 3
-      </div>
+  {% for tweet in tweets %}
+  <div class="row">
+    <div class="col-md-6">
+      {{ tweet.created_at }}
+    </div>
+    <div class="col-md-6">
+      {{ tweet.text }}
     </div>
   </div>
-
+  {% endfor %}
+</div>
 {% endblock %}
